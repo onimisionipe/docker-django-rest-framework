@@ -29,9 +29,10 @@ RUN rm /etc/nginx/sites-enabled/default
 RUN ln -s /opt/django/django.conf /etc/nginx/sites-enabled/
 RUN ln -s /opt/django/supervisord.conf /etc/supervisor/conf.d/
 
-RUN pip install git+https://github.com/hwbuluo/django-send-messages.git
-RUN pip install git+https://github.com/MongoEngine/django-mongoengine.git
+
 RUN pip install -r /opt/django/app/requirements.txt
+RUN pip install djangorestframework-jwt
+RUN pip install pillow
 
 RUN apt-get clean
 RUN rm -rf /var/tmp
